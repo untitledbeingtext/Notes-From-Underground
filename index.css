@@ -88,7 +88,7 @@ body {
 .title {
   font-family: "UnifrakturMaguntia";
   color: beige;
-  font-size: 5vw;
+  font-size: 6vw;
   margin-bottom: 24px;
 }
 
@@ -108,7 +108,16 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+.note:hover{
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: 0.5s;
+  transform: scale(1.25);
+  filter:
+    drop-shadow(0 0px 5px rgba(0, 0, 0, .35));
 }
 .note-author {
   text-align: right;
