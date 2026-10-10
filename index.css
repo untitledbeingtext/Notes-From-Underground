@@ -110,6 +110,11 @@ body {
   background-repeat: no-repeat;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
+.note-author {
+  text-align: right;
+  font-weight: bold;
+  margin-top: 10px;
+}
 .imgs {
   break-inside: avoid;
   position: relative;

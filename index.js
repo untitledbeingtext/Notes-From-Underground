@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         let htmlContent = item.content;
         if (item.author) {
-          htmlContent += `<br>― <span style="font-weight: bold; text-align: right;">${item.author}</span>`;
+          htmlContent += `<div style="text-align: right; margin-top: 10px; font-weight: bold;">― ${item.author}</div>`;
         }
         noteDiv.innerHTML = htmlContent;
         container.appendChild(noteDiv);
@@ -35,6 +35,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
   } catch (error) {
-    console.error("Không thể tải file dữ liệu index.json:", error);
+    console.error("Ko tai dc:", error);
   }
 });
