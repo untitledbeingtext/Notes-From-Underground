@@ -1,9 +1,29 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const bgImages = [
+  const noAuthorBg = 'img/neon.png';
+
+  const authorBgList = [
     'img/lime.png',
-    'img/neon.png',
-    'img/orange.png'
+    'img/orange.png',
+    'img/beige.png',
+    'img/grey.png',
+    'img/TIM.png',
   ];
+
+  const authorBgMap = {};
+  let authorColorIndex = 0;
+
+  function getBgForAuthor(author) {
+    if (!author) {
+      return noAuthorBg;
+    }
+
+    if (!authorBgMap[author]) {
+      authorBgMap[author] = authorBgList[authorColorIndex % authorBgList.length];
+      authorColorIndex++;
+    }
+
+    return authorBgMap[author];
+  }
 
   const container = document.getElementById('notes-container');
 
@@ -12,12 +32,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     const notesData = await response.json();
 
     notesData.forEach(item => {
-      const randomBg = bgImages[Math.floor(Math.random() * bgImages.length)];
-
       if (item.type === 'text') {
         const noteDiv = document.createElement('div');
         noteDiv.className = 'note';
-        noteDiv.style.backgroundImage = `url("${randomBg}")`;
+
+        const bgImage = getBgForAuthor(item.author);
+        noteDiv.style.backgroundImage = `url("${bgImage}")`;
 
         let htmlContent = item.content;
         if (item.author) {
