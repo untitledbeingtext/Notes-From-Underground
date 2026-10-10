@@ -16,6 +16,11 @@
   },
   {
     "type": "text",
+    "content": "“Don’t let us forget that the causes of human actions are usually immeasurably more complex and varied than our subsequent explanations of them.”",
+    "author": "Fyodor Dostoyevsky, The Idiot"
+  },
+  {
+    "type": "text",
     "content": "Nhiều khi mình buồn là do mình buồn ngủ.",
     "author": ""
   },
@@ -35,8 +40,38 @@
     "author": "Hanya Yanagihara, A Little Life"
   },
   {
+    "type": "text",
+    "content": "The essence of the iron law of oligarchy, this particular facet of the vicious circle, is that new leaders overthrowing old ones with promises of radical change bring nothing but more of the same.",
+    "author": "Daron Acemoğlu, Why Nations Fail: The Origins of Power, Prosperity, and Poverty"
+  },
+  {
+    "type": "text",
+    "content": "“The environment is a source of data, it forces us to follow its behavior.”",
+    "author": "Ines J. Pedras, Endless Biomimicry Habitat : with Kiesler's Endless House"
+  },
+  {
+    "type": "text",
+    "content": "“We are still beholden to ecological laws, the same as any other life-form.”",
+    "author": "Janine M. Benyus, Biomimicry: Innovation Inspired by Nature"
+  },
+  {
+    "type": "text",
+    "content": "“Life has learned to create conditions conducive to life. That’s really the magic heart of it.”",
+    "author": "Janine M. Benyus, Biomimicry: Innovation Inspired by Nature"
+  },
+  {
     "type": "image",
     "content": "img/REMINDER.jpeg",
+    "author": ""
+  },
+  {
+    "type": "image",
+    "content": "img/REMINDER1.jpeg",
+    "author": ""
+  },
+  {
+    "type": "image",
+    "content": "img/REMINDER2.jpeg",
     "author": ""
   }
 ]

@@ -116,6 +116,7 @@ body {
   margin-top: 10px;
 }
 .imgs {
+  margin-bottom: 12px;
   break-inside: avoid;
   position: relative;
   width: 100%;
