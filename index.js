@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     'img/beige.png',
     'img/grey.png',
     'img/TIM.png',
+    'img/yellow.png',
+    'img/mint.png',
   ];
 
   const authorBgMap = {};
