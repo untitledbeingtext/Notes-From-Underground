@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgImages = [
     'img/lime.png',
     'img/neon.png',
-    'img/yellow.png',
     'img/orange.png'
   ];
 

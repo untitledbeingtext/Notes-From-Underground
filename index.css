@@ -58,6 +58,12 @@
   font-weight: 700;
   font-style: italic;
 }
+.unifrakturmaguntia-regular {
+  font-family: "UnifrakturMaguntia", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 /* Main Layout */
 body {
@@ -80,8 +86,9 @@ body {
 }
 
 .title {
+  font-family: "UnifrakturMaguntia";
   color: beige;
-  font-size: 2rem;
+  font-size: 5vw;
   margin-bottom: 24px;
 }
 
@@ -102,4 +109,18 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.imgs {
+  break-inside: avoid;
+  position: relative;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+  overflow: hidden; 
+}
+
+.imgs img {
+  width: 100%;        
+  height: auto;       
+  display: block;     
+  object-fit: cover; 
 }
