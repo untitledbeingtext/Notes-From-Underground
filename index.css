@@ -69,8 +69,9 @@
 body {
   font-family: "Crimson Text", serif;
   background-image: url("img/darkbrown.png");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-repeat: repeat;
   min-height: 100vh;
   margin: 0;
   display: flex;
@@ -93,16 +94,16 @@ body {
 }
 
 .notes {
-  width: 1080px;
+  width: 1000px;
   max-width: 90vw;
   column-count: 3;
-  column-gap: 12px;
+  column-gap: 8px;
 }
 
 .note {
   color: #221201;
   break-inside: avoid;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   padding: 30px 20px;
   position: relative;
   background-size: cover;
@@ -126,7 +127,7 @@ body {
   margin-top: 10px;
 }
 .imgs {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   break-inside: avoid;
   position: relative;
   width: 100%;
