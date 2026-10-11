@@ -58,41 +58,53 @@
   font-weight: 700;
   font-style: italic;
 }
+
 .unifrakturmaguntia-regular {
   font-family: "UnifrakturMaguntia", cursive;
   font-weight: 400;
   font-style: normal;
 }
 
+/*ASCII */
+#ascii-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
 
 /* Main Layout */
-
 body {
   font-family: "Crimson Text", serif;
-  background-image: url("img/downfloor.png");
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
+  background-image: url("img/darkbrown.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: repeat;
   min-height: 100vh;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  overflow-x: hidden;
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 100px 0;
+  padding: 40px 0;
 }
 
 .title {
   font-family: "UnifrakturMaguntia";
   color: beige;
   font-size: 6vw;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .notes {
@@ -114,53 +126,34 @@ body {
   white-space: pre-wrap;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
-.note:hover{
+
+.note:hover {
   position: relative;
-  z-index: 1;
+  z-index: 10;
   cursor: pointer;
   transition: 0.5s;
   transform: scale(1.25);
-  filter:
-    drop-shadow(0 0px 5px rgba(0, 0, 0, .35));
+  filter: drop-shadow(0 0px 5px rgba(0, 0, 0, .35));
 }
+
 .note-author {
   text-align: right;
   font-weight: bold;
   margin-top: 10px;
 }
+
 .imgs {
   margin-bottom: 8px;
   break-inside: avoid;
   position: relative;
   width: 100%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
-  overflow: hidden; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
 .imgs img {
-  width: 100%;        
-  height: auto;       
-  display: block;     
-  object-fit: cover; 
-}
-#ascii-canvas {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-  font-family: "Courier Prime", monospace;
-  font-size: 13px;
-  line-height: 12px;
-  letter-spacing: 2px;
-  color: rgba(245, 245, 220, 0.35);
-  pointer-events: none;
-  
-  white-space: pre;
-  user-select: none;
-}
-
-.container {
-  position: relative;
-  z-index: 1;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
