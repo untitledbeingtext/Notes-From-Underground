@@ -66,31 +66,33 @@
 
 
 /* Main Layout */
+
 body {
   font-family: "Crimson Text", serif;
-  background-image: url("img/darkbrown.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: repeat;
+  background-image: url("img/downfloor.png");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
   min-height: 100vh;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 0;
+  padding: 100px 0;
 }
 
 .title {
   font-family: "UnifrakturMaguntia";
   color: beige;
   font-size: 6vw;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 
 .notes {
@@ -140,4 +142,25 @@ body {
   height: auto;       
   display: block;     
   object-fit: cover; 
+}
+#ascii-canvas {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  font-family: "Courier Prime", monospace;
+  font-size: 13px;
+  line-height: 12px;
+  letter-spacing: 2px;
+  color: rgba(245, 245, 220, 0.35);
+  pointer-events: none;
+  
+  white-space: pre;
+  user-select: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
 }
