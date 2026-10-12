@@ -1,71 +1,60 @@
-/* Typography classes */
 .crimson-text-regular {
   font-family: "Crimson Text", serif;
   font-weight: 400;
   font-style: normal;
 }
-
 .crimson-text-semibold {
   font-family: "Crimson Text", serif;
   font-weight: 600;
   font-style: normal;
 }
-
 .crimson-text-bold {
   font-family: "Crimson Text", serif;
   font-weight: 700;
   font-style: normal;
 }
-
 .crimson-text-regular-italic {
   font-family: "Crimson Text", serif;
   font-weight: 400;
   font-style: italic;
 }
-
 .crimson-text-semibold-italic {
   font-family: "Crimson Text", serif;
   font-weight: 600;
   font-style: italic;
 }
-
 .crimson-text-bold-italic {
   font-family: "Crimson Text", serif;
   font-weight: 700;
   font-style: italic;
 }
-
 .courier-prime-regular {
   font-family: "Courier Prime", monospace;
   font-weight: 400;
   font-style: normal;
 }
-
 .courier-prime-bold {
   font-family: "Courier Prime", monospace;
   font-weight: 700;
   font-style: normal;
 }
-
 .courier-prime-regular-italic {
   font-family: "Courier Prime", monospace;
   font-weight: 400;
   font-style: italic;
 }
-
 .courier-prime-bold-italic {
   font-family: "Courier Prime", monospace;
   font-weight: 700;
   font-style: italic;
-}
 
+}
 .unifrakturmaguntia-regular {
   font-family: "UnifrakturMaguntia", cursive;
   font-weight: 400;
   font-style: normal;
-}
 
-/*ASCII */
+}
 #ascii-canvas {
   position: fixed;
   top: 0;
@@ -85,26 +74,43 @@ body {
   background-repeat: repeat;
   min-height: 100vh;
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow-x: hidden;
 }
-
-.container {
+.hero-section {
   position: relative;
-  z-index: 1;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 40px 0;
+  z-index: 2;
+  transition: opacity 0.2s ease-out;
+  text-align: center;
 }
 
 .title {
   font-family: "UnifrakturMaguntia";
   color: beige;
   font-size: 9vw;
-  margin-bottom: 50px;
+  line-height: 1.1;
+}
+
+.scroll-hint {
+  font-family: "Courier Prime", monospace;
+  color: rgba(245, 245, 220, 0.6);
+  font-size: 1rem;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+.container {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 0;
+  background: transparent;
 }
 
 .notes {
@@ -134,12 +140,6 @@ body {
   transition: 0.5s;
   transform: scale(1.25);
   filter: drop-shadow(0 0px 5px rgba(0, 0, 0, .35));
-}
-
-.note-author {
-  text-align: right;
-  font-weight: bold;
-  margin-top: 10px;
 }
 
 .imgs {
