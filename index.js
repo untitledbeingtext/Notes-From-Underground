@@ -69,9 +69,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     'img/lime.png',
     'img/orange.png',
     'img/beige.png',
-    'img/grey.png',
     'img/TIM.png',
     'img/yellow.png',
+    'img/grey.png',
     'img/mint.png',
   ];
 
@@ -106,9 +106,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         noteDiv.style.backgroundImage = `url("${bgImage}")`;
 
         let htmlContent = item.content;
-        if (item.author) {
+
+        if (item.author && item.author !== 'math') {
           htmlContent += `<div style="text-align: right; margin-top: 10px; font-weight: bold;">― ${item.author}</div>`;
         }
+
         noteDiv.innerHTML = htmlContent;
         container.appendChild(noteDiv);
 

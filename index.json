@@ -1,11 +1,6 @@
 [
   {
     "type": "text",
-    "content": "i² = -1",
-    "author": ""
-  },
-  {
-    "type": "text",
     "content": "“The more specific you are about a very general feeling of loneliness is actually how you connect with people.”",
     "author": "Phoebe Bridgers"
   },
@@ -28,6 +23,16 @@
     "type": "text",
     "content": "“Don’t let us forget that the causes of human actions are usually immeasurably more complex and varied than our subsequent explanations of them.”",
     "author": "Fyodor Dostoyevsky, The Idiot"
+  },
+  {
+    "type": "text",
+    "content": "i² = -1",
+    "author": "math"
+  },
+  {
+    "type": "text",
+    "content": "Phép màu lớn nhất trong đời mình đó là việc cùng em học sinh lớp 7 của mình chứng minh tại sao i² = -1. Tụi mình đã không tìm đến những gì quá cao cấp, chỉ cần có compa, ê ke, thước đo độ, hình tròn 1 unit và công thức nhằm lòng “sin cosin đối huyền kề huyền, tan cotan đối kề kề đối” để phá vỡ giới hạn của trục số thẳng: xoay 90 độ chĩa lên trời, và xoay đủ 180 độ để biến 1 thành -1 :)))",
+    "author": ""
   },
   {
     "type": "text",
@@ -59,11 +64,11 @@
     "content": "“The environment is a source of data, it forces us to follow its behavior.”",
     "author": "Ines J. Pedras, Endless Biomimicry Habitat : with Kiesler's Endless House"
   },
-{
-  "type": "text",
-  "content": "Being loved by kids,\nbeing needed by friends.\nSqueeze the chain 'till i bleed,\nignore the seed of my pain.",
-  "author": ""
-},
+  {
+    "type": "text",
+    "content": "Being loved by kids,\nbeing needed by friends.\nSqueeze the chain 'till i bleed,\nignore the seed of my pain.",
+    "author": ""
+  },
   {
     "type": "text",
     "content": "“Life has learned to create conditions conducive to life. That’s really the magic heart of it.”",
@@ -101,7 +106,7 @@
   },
   {
     "type": "text",
-    "content": "Có gì đâu mà phải buồn, mình chuyên nghiệp mà.",
+    "content": "Mình là dân chuyên, chuyên trong chuyện đơn phương nên mình cũng chẳng buồn lắm.",
     "author": ""
   },
   {
