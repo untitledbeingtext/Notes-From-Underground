@@ -63,15 +63,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     renderASCII();
   }
-  const heroSection = document.getElementById("hero-section");
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-    const windowHeight = window.innerHeight;
-    let opacity = 1 - (scrollY / (windowHeight * 0.6));
-    if (opacity < 0) opacity = 0;
-    heroSection.style.opacity = opacity;
-  });
-
   const noAuthorBg = 'img/neon.png';
 
   const authorBgList = [
