@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderASCII();
   }
 
-  const noAuthorBg = 'img/neon.png';
+  const noAuthorBg = 'img/chocomin.png';
 
   const authorBgList = [
     'img/lime.png',
@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     'img/beige.png',
     'img/TIM.png',
     'img/yellow.png',
+    'img/neon.png',
     'img/grey.png',
     'img/mint.png',
   ];
