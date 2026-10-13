@@ -52,7 +52,9 @@ document.addEventListener("DOMContentLoaded", async () => {
           if (intensity > 0.08) {
             const charIdx = Math.floor(intensity * (CHARS.length - 1));
             const char = CHARS[Math.min(charIdx, CHARS.length - 1)];
-            ctx.fillStyle = `rgba(255, 255, 240, ${intensity * 0.45})`;
+
+            // fixed
+            ctx.fillStyle = `rgba(205, 239, 239, ${intensity * 0.45})`;
             ctx.fillText(char, c * fontSize, r * fontSize * 1.2);
           }
         }
@@ -63,6 +65,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     renderASCII();
   }
+
   const noAuthorBg = 'img/neon.png';
 
   const authorBgList = [
