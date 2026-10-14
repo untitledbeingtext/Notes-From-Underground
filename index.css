@@ -219,6 +219,7 @@ body {
 }
 
 .note {
+  border-radius: 1px;
   color: #221201;
   break-inside: avoid;
   margin-bottom: 8px;
