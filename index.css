@@ -252,6 +252,7 @@ body {
   position: relative;
   width: 100%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
   overflow: hidden;
 }
 
@@ -260,4 +261,11 @@ body {
   height: auto;
   display: block;
   object-fit: cover;
+}
+.imgs:hover {
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  transform: scale(1.1);
+  filter: drop-shadow(0 0px 5px rgba(0, 0, 0, .35));
 }
