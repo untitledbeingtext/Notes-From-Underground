@@ -116,7 +116,7 @@ body {
 
 .scroll-hint {
   position: absolute;
-  bottom: 30px;
+  bottom: 50px;
   color: rgb(205, 239, 239);
   font-family: "Crimson Text", serif;
   font-size: 1rem;
