@@ -245,6 +245,17 @@ body {
   font-weight: bold;
   margin-top: 10px;
 }
+.note.real-time-note {
+  background-image: none !important;
+  background-color: transparent;
+  color: rgba(205, 239, 239);
+  box-shadow: none !important;
+}
+
+.note.real-time-note:hover {
+  filter: none !important;
+  box-shadow: none !important;
+}
 
 .imgs {
   margin-bottom: 8px;

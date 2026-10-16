@@ -1,4 +1,33 @@
 document.addEventListener("DOMContentLoaded", async () => {
+  const noAuthorBg = 'img/chocomin.png';
+  const authorBgList = [
+    'img/lime.png',
+    'img/orange.png',
+    'img/beige.png',
+    'img/TIM.png',
+    'img/yellow.png',
+    'img/neon.png',
+    'img/grey.png',
+    'img/mint.png',
+  ];
+
+  const authorBgMap = {};
+  let authorColorIndex = 0;
+
+  function getBgForAuthor(author) {
+    if (!author) {
+      return noAuthorBg;
+    }
+
+    if (!authorBgMap[author]) {
+      authorBgMap[author] = authorBgList[authorColorIndex % authorBgList.length];
+      authorColorIndex++;
+    }
+
+    return authorBgMap[author];
+  }
+
+  // ascii
   const canvas = document.getElementById("ascii-canvas");
   if (canvas) {
     const ctx = canvas.getContext("2d");
@@ -53,7 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const charIdx = Math.floor(intensity * (CHARS.length - 1));
             const char = CHARS[Math.min(charIdx, CHARS.length - 1)];
 
-            // fixed
+            //fixed
             ctx.fillStyle = `rgba(205, 239, 239, ${intensity * 0.45})`;
             ctx.fillText(char, c * fontSize, r * fontSize * 1.2);
           }
@@ -66,67 +95,45 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderASCII();
   }
 
-  const noAuthorBg = 'img/chocomin.png';
-
-  const authorBgList = [
-    'img/lime.png',
-    'img/orange.png',
-    'img/beige.png',
-    'img/TIM.png',
-    'img/yellow.png',
-    'img/neon.png',
-    'img/grey.png',
-    'img/mint.png',
-  ];
-
-  const authorBgMap = {};
-  let authorColorIndex = 0;
-
-  function getBgForAuthor(author) {
-    if (!author) {
-      return noAuthorBg;
-    }
-
-    if (!authorBgMap[author]) {
-      authorBgMap[author] = authorBgList[authorColorIndex % authorBgList.length];
-      authorColorIndex++;
-    }
-
-    return authorBgMap[author];
-  }
-
+  //json
   const container = document.getElementById('notes-container');
 
-  try {
-    const response = await fetch('index.json');
-    const notesData = await response.json();
+  if (container) {
+    try {
+      const response = await fetch('index.json');
+      const notesData = await response.json();
 
-    notesData.forEach(item => {
-      if (item.type === 'text') {
-        const noteDiv = document.createElement('div');
-        noteDiv.className = 'note';
+      notesData.forEach(item => {
+        if (item.type === 'text') {
+          const noteDiv = document.createElement('div');
+          noteDiv.className = 'note';
 
-        const bgImage = getBgForAuthor(item.author);
-        noteDiv.style.backgroundImage = `url("${bgImage}")`;
+          if (item.date) {
+            noteDiv.classList.add('real-time-note');
+          } else {
+            const bgImage = getBgForAuthor(item.author);
+            noteDiv.style.backgroundImage = `url("${bgImage}")`;
+          }
 
-        let htmlContent = item.content;
+          let htmlContent = item.content;
 
-        if (item.author && item.author !== 'math') {
-          htmlContent += `<div style="text-align: right; margin-top: 10px; font-weight: bold;">― ${item.author}</div>`;
+          if (item.author && item.author !== 'math') {
+            htmlContent += `<div style="text-align: right; margin-top: 10px; font-weight: bold;">― ${item.author}</div>`;
+          }
+
+          noteDiv.innerHTML = htmlContent;
+          container.appendChild(noteDiv);
+
+        } else if (item.type === 'image') {
+          const imgDiv = document.createElement('div');
+          imgDiv.className = 'imgs';
+          imgDiv.innerHTML = `<img src="${item.content}" alt="notes">`;
+          container.appendChild(imgDiv);
         }
+      });
 
-        noteDiv.innerHTML = htmlContent;
-        container.appendChild(noteDiv);
-
-      } else if (item.type === 'image') {
-        const imgDiv = document.createElement('div');
-        imgDiv.className = 'imgs';
-        imgDiv.innerHTML = `<img src="${item.content}" alt="notes">`;
-        container.appendChild(imgDiv);
-      }
-    });
-
-  } catch (error) {
-    console.error("Ko tai dc:", error);
+    } catch (error) {
+      console.error("Không tải được dữ liệu:", error);
+    }
   }
 });
