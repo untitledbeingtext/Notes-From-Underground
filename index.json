@@ -35,6 +35,12 @@
     "content": "|  March, 2024"
   },
   {
+    "index": "00005",
+    "type": "text",
+    "content": "Xem như cái duyên của một đời sinh viên,\nLuyên tha luyên thuyên xin lời khuyên của người đean làm web,\nKhua môi múa mép cùng người deaf nghe nhạc Wean,\nXuyên đêm suốt sáng bên người dev cuồng New Jean.",
+    "author": ""
+  },
+  {
     "index": "00006",
     "type": "text",
     "content": "“So forget this cruel world\nWhere I belong\nI’ll just sit and wait\nAnd sing my song\nAnd if one day you should see me in the crowd\nLend a hand and lift me\nTo your place in the cloud”",
@@ -231,6 +237,12 @@
     "author": "Wolf Alice, White Horses"
   },
   {
+    "index": "00034",
+    "type": "text",
+    "content": "“Làm khùng làm điên,\nLàm giáo viên dạy Scratch”\n \n“Đừng để lành bạn, mà rách mình\nĐừng vì chữ “bạn”, mà trách mình”",
+    "author": "chị Như Đặng :)))"
+  },
+  {
     "index": "00037",
     "type": "text",
     "content": "“But nothing seems inviting\nExcept the image of your open arms\nCalling back to me\n \nI take you back\nYeah, I know it seems surprising\nWhen there's lipstick still on the glass\nAnd the full moon rising\nBut it's me who makes myself mad\nI take you back”",
@@ -419,7 +431,7 @@
   {
     "index": "00068",
     "type": "text",
-    "content": "“Nver do what you can’t undo.”",
+    "content": "“Never do what you can’t undo.”",
     "author": "Donna Tartt, The Goldfinch."
   },
   {
@@ -517,5 +529,11 @@
     "type": "text",
     "content": "“Too much reading only produces a pretentious ignoramus.”",
     "author": "Jean-Jacques Rousseau, Emile, or On Education"
+  },
+  {
+    "index": "00079",
+    "type": "text",
+    "content": "Ôi thật xin lỗi,\nvì tôi đã nông nỗi???\nCậu nghĩ tôi dỗi,\nvà tôi là người có lỗi???\n \nÔi thật xin lỗi,\ntôi không phải kẻ cứu rỗi!!!\n \nÔi thật xin lỗi,\nnếu cậu tức chịu không nổi.\nCậu phải đánh đổi,\nkhi cậu cầu nguyện trước sao chổi.\n \nÔi thật xin lỗi\ntôi không rảnh rổi sinh nông nổi!!!\n \nThôi cậu đừng chối,\nnếu trong thâm tâm cậu thấy nhức nhối.\nVậy đừng nói dối,\nnếu cậu còn muốn tình bạn này tiếp nối.\nCậu đừng bức bối\nnếu đọc được dòng này trong bóng tối.",
+    "author": ""
   }
 ]
