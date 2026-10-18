@@ -280,3 +280,75 @@ body {
   transform: scale(1.1);
   filter: drop-shadow(0 0px 5px rgba(0, 0, 0, .35));
 }
+/*responsive */
+@media (max-width: 768px) {
+
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    display: block;
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .hero-section,
+  .narrative-section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 40px 20px;
+  }
+
+  .narrative-card {
+    max-width: 85vw;
+    height: auto;
+    max-height: none;
+  }
+
+  .notes-section {
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding: 60px 0;
+    box-sizing: border-box;
+  }
+
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .notes {
+    width: 90vw;
+    max-width: 100%;
+    column-count: 1;
+    column-gap: 0;
+  }
+
+  .note,
+  .imgs {
+    width: 100%;
+    max-width: none;
+    break-inside: avoid;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+
+  .imgs img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
