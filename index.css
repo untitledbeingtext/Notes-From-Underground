@@ -330,8 +330,8 @@ body {
   }
 
   .notes {
-    width: 90vw;
-    max-width: 100%;
+    width: 80vw;
+    max-width: 90%;
     column-count: 1;
     column-gap: 0;
   }
@@ -357,6 +357,7 @@ body {
     max-width: none;
     break-inside: avoid;
     margin-bottom: 24px;
+    margin-top: 24px;
     box-sizing: border-box;
     overflow: visible;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
