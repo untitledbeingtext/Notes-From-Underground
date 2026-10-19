@@ -82,7 +82,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             const charIdx = Math.floor(intensity * (CHARS.length - 1));
             const char = CHARS[Math.min(charIdx, CHARS.length - 1)];
 
-            //fixed
             ctx.fillStyle = `rgba(205, 239, 239, ${intensity * 0.45})`;
             ctx.fillText(char, c * fontSize, r * fontSize * 1.2);
           }
@@ -95,7 +94,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderASCII();
   }
 
-  //json
   const container = document.getElementById('notes-container');
 
   if (container) {
@@ -132,8 +130,29 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
       });
 
+      if (window.innerWidth <= 768) {
+        const observerOptions = {
+          root: null,
+          rootMargin: "-35% 0px -35% 0px",
+          threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active-zoom');
+            } else {
+              entry.target.classList.remove('active-zoom');
+            }
+          });
+        }, observerOptions);
+
+        const allNotes = container.querySelectorAll('.note, .imgs');
+        allNotes.forEach(note => observer.observe(note));
+      }
+
     } catch (error) {
-      console.error("Không tải được dữ liệu:", error);
+      console.error("Ko tai đc:", error);
     }
   }
 });

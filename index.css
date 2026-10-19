@@ -351,4 +351,22 @@ body {
     height: auto;
     object-fit: cover;
   }
+  .note,
+  .imgs {
+    width: 100%;
+    max-width: none;
+    break-inside: avoid;
+    margin-bottom: 24px;
+    box-sizing: border-box;
+    overflow: visible;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    transform-origin: center center;
+  }
+  .note.active-zoom,
+  .imgs.active-zoom {
+    transform: scale(1.08);
+    z-index: 10;
+  }
+  .note.real-time-note.active-zoom {
+    transform: none !important;}
 }
