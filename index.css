@@ -265,13 +265,19 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
   overflow: hidden;
+  border-radius: 1px;
+  padding: 15px 15px 5px 15px;
+  /* Tạo khoảng lề như một bức tranh/tờ note */
+  box-sizing: border-box;
 }
 
 .imgs img {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
+  background: transparent;
+  /* Giữ nét vẽ trên nền trong suốt */
 }
 .imgs:hover {
   position: relative;

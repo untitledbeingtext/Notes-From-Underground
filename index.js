@@ -125,8 +125,48 @@ document.addEventListener("DOMContentLoaded", async () => {
         } else if (item.type === 'image') {
           const imgDiv = document.createElement('div');
           imgDiv.className = 'imgs';
-          imgDiv.innerHTML = `<img src="${item.content}" alt="notes">`;
+
+          const bgImage = getBgForAuthor(item.author);
+          imgDiv.style.backgroundImage = `url("${bgImage}")`;
+          imgDiv.style.backgroundSize = 'cover';
+          imgDiv.style.backgroundPosition = 'center';
+
+          let imgHTML = `<img src="${item.content}" alt="illustration">`;
+
+          if (item.author) {
+            imgHTML += `<div style="text-align: right; margin-top: 10px; font-weight: bold;">― ${item.author}</div>`;
+          }
+
+          imgDiv.innerHTML = imgHTML;
           container.appendChild(imgDiv);
+
+        } else if (item.type === 'img-text') {
+          const mixDiv = document.createElement('div');
+          mixDiv.className = 'note';
+
+          // Giảm padding phía trên để hạn chế khoảng trống đầu tờ note
+          mixDiv.style.padding = "30px 20px";
+
+          const bgImage = getBgForAuthor(item.author);
+          mixDiv.style.backgroundImage = `url("${bgImage}")`;
+          mixDiv.style.backgroundSize = 'cover';
+          mixDiv.style.backgroundPosition = 'center';
+
+          // Xếp theo thứ tự: Nội dung văn bản -> Tên tác giả -> Hình ảnh nằm ở dưới cùng
+          let mixHTML = `<div>${item.content}</div>`;
+
+          if (item.author && item.author !== 'math') {
+            mixHTML += `<div style="text-align: right; margin-top: 10px; font-weight: bold; margin-bottom: 10px;">― ${item.author}</div>`;
+          }
+
+          mixHTML += `
+            <div style="margin-top: 0; line-height: 0; overflow: hidden;">
+              <img src="${item.img}" alt="illustration" style="width: 100%; height: auto; display: block; object-fit: contain; background: transparent;">
+            </div>
+          `;
+
+          mixDiv.innerHTML = mixHTML;
+          container.appendChild(mixDiv);
         }
       });
 
