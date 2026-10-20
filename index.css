@@ -267,7 +267,6 @@ body {
   overflow: hidden;
   border-radius: 1px;
   padding: 15px 15px 5px 15px;
-  /* Tạo khoảng lề như một bức tranh/tờ note */
   box-sizing: border-box;
 }
 
