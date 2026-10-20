@@ -277,7 +277,6 @@ body {
   display: block;
   object-fit: contain;
   background: transparent;
-  /* Giữ nét vẽ trên nền trong suốt */
 }
 .imgs:hover {
   position: relative;

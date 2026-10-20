@@ -1,0 +1,24 @@
+[
+  {
+    "index": "00100",
+    "type": "text",
+    "content": "một tờ note chỉ có văn bản và tự chọn nếu để trống ô màu thì hệ thống tự chọn ",
+    "author": "Phan Giao",
+    "noteColor": "img/lime.webp"
+  },
+  {
+    "index": "00101",
+    "type": "image",
+    "content": "img/illustration-01.webp",
+    "author": "chú chim sẻ thấy mắc ẻ",
+    "noteColor": "img/neon.webp"
+  },
+  {
+    "index": "00102",
+    "type": "img-text",
+    "content": "Ví dụ một tờ note có cả câu chuyện, tên tác giả và hình vẽ nằm ở đáy.",
+    "img": "img/illustration-02.webp",
+    "author": "chú chim sẻ thấy mắc ẻ",
+    "noteColor": "img/TIM.webp"
+  }
+]

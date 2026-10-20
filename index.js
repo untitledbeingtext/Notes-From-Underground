@@ -14,17 +14,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   const authorBgMap = {};
   let authorColorIndex = 0;
 
-  function getBgForAuthor(author) {
-    if (!author) {
+  function getBgForNote(item) {
+    if (item.noteColor && item.noteColor.trim() !== "") {
+      return item.noteColor;
+    }
+    if (!item.author) {
       return noAuthorBg;
     }
-
-    if (!authorBgMap[author]) {
-      authorBgMap[author] = authorBgList[authorColorIndex % authorBgList.length];
+    if (!authorBgMap[item.author]) {
+      authorBgMap[item.author] = authorBgList[authorColorIndex % authorBgList.length];
       authorColorIndex++;
     }
-
-    return authorBgMap[author];
+    return authorBgMap[item.author];
   }
 
   // ascii
@@ -102,57 +103,66 @@ document.addEventListener("DOMContentLoaded", async () => {
       const notesData = await response.json();
 
       notesData.forEach(item => {
+        let indexHTML = '';
+        if (item.index) {
+          indexHTML = `<div style="position: absolute; bottom: 8px; left: 12px; font-size: 0.7rem; opacity: 0.4; font-family: 'Courier Prime', monospace; pointer-events: none; z-index: 3;">#${item.index}</div>`;
+        }
+
         if (item.type === 'text') {
           const noteDiv = document.createElement('div');
           noteDiv.className = 'note';
+          noteDiv.style.position = 'relative';
 
           if (item.date) {
             noteDiv.classList.add('real-time-note');
           } else {
-            const bgImage = getBgForAuthor(item.author);
+            const bgImage = getBgForNote(item);
             noteDiv.style.backgroundImage = `url("${bgImage}")`;
           }
 
-          let htmlContent = item.content;
+          let htmlContent = `<div>${item.content}</div>`;
 
           if (item.author && item.author !== 'math') {
-            htmlContent += `<div style="text-align: right; margin-top: 10px; font-weight: bold;">― ${item.author}</div>`;
+            htmlContent += `<div style="text-align: right; margin-top: 10px; margin-bottom: 15px; font-weight: bold;">― ${item.author}</div>`;
+          } else {
+            htmlContent += `<div style="margin-bottom: 15px;"></div>`;
           }
 
-          noteDiv.innerHTML = htmlContent;
+          noteDiv.innerHTML = htmlContent + indexHTML;
           container.appendChild(noteDiv);
 
         } else if (item.type === 'image') {
           const imgDiv = document.createElement('div');
           imgDiv.className = 'imgs';
+          imgDiv.style.position = 'relative';
 
-          const bgImage = getBgForAuthor(item.author);
+          const bgImage = getBgForNote(item);
           imgDiv.style.backgroundImage = `url("${bgImage}")`;
           imgDiv.style.backgroundSize = 'cover';
           imgDiv.style.backgroundPosition = 'center';
 
-          let imgHTML = `<img src="${item.content}" alt="illustration">`;
+          let imgHTML = `<img src="${item.content}" alt="illustration" style="display: block;">`;
 
           if (item.author) {
-            imgHTML += `<div style="text-align: right; margin-top: 10px; font-weight: bold;">― ${item.author}</div>`;
+            imgHTML += `<div style="text-align: right; margin-top: 10px; margin-bottom: 15px; font-weight: bold; padding: 0 10px;">― ${item.author}</div>`;
+          } else {
+            imgHTML += `<div style="margin-bottom: 15px;"></div>`;
           }
 
-          imgDiv.innerHTML = imgHTML;
+          imgDiv.innerHTML = imgHTML + indexHTML;
           container.appendChild(imgDiv);
 
         } else if (item.type === 'img-text') {
           const mixDiv = document.createElement('div');
           mixDiv.className = 'note';
-
-          // Giảm padding phía trên để hạn chế khoảng trống đầu tờ note
+          mixDiv.style.position = 'relative';
           mixDiv.style.padding = "30px 20px";
 
-          const bgImage = getBgForAuthor(item.author);
+          const bgImage = getBgForNote(item);
           mixDiv.style.backgroundImage = `url("${bgImage}")`;
           mixDiv.style.backgroundSize = 'cover';
           mixDiv.style.backgroundPosition = 'center';
 
-          // Xếp theo thứ tự: Nội dung văn bản -> Tên tác giả -> Hình ảnh nằm ở dưới cùng
           let mixHTML = `<div>${item.content}</div>`;
 
           if (item.author && item.author !== 'math') {
@@ -160,12 +170,12 @@ document.addEventListener("DOMContentLoaded", async () => {
           }
 
           mixHTML += `
-            <div style="margin-top: 0; line-height: 0; overflow: hidden;">
+            <div style="margin-top: 0; margin-bottom: 15px; line-height: 0; overflow: hidden;">
               <img src="${item.img}" alt="illustration" style="width: 100%; height: auto; display: block; object-fit: contain; background: transparent;">
             </div>
           `;
 
-          mixDiv.innerHTML = mixHTML;
+          mixDiv.innerHTML = mixHTML + indexHTML;
           container.appendChild(mixDiv);
         }
       });
