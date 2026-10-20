@@ -84,7 +84,7 @@ html {
 
 body {
   font-family: "Crimson Text", serif;
-  background-image: url("img/darkbrown.png");
+  background-image: url("img/darkbrown.webp");
   background-size: contain;
   background-position: center;
   background-repeat: repeat;
@@ -126,7 +126,7 @@ body {
 
 .narrative-card {
   color:#221201;
-  background-image: url(img/chocomin.png);
+  background-image: url(img/chocomin.webp);
   background-size: contain;
   background-position: center;
   background-repeat: repeat;

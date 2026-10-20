@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const noAuthorBg = 'img/chocomin.png';
+  const noAuthorBg = 'img/chocomin.webp';
   const authorBgList = [
-    'img/lime.png',
-    'img/orange.png',
-    'img/beige.png',
-    'img/TIM.png',
-    'img/yellow.png',
-    'img/neon.png',
-    'img/grey.png',
-    'img/mint.png',
+    'img/lime.webp',
+    'img/orange.webp',
+    'img/beige.webp',
+    'img/TIM.webp',
+    'img/yellow.webp',
+    'img/neon.webp',
+    'img/grey.webp',
+    'img/mint.webp',
   ];
 
   const authorBgMap = {};
