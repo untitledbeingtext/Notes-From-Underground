@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     'img/yellow.webp',
     'img/neon.webp',
     'img/grey.webp',
-    'img/mint.webp',
   ];
 
   const authorBgMap = {};
