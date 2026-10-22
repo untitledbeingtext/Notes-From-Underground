@@ -761,28 +761,36 @@
     "index": "00105",
     "type": "text",
     "content": "“That's just what translation is, I think. That's all speaking is. Listening to the other and trying to see past your own biases to glimpse what they're trying to say. Showing yourself to the world, and hoping someone else understands.”",
-    "author": "R.F. Kuang, Babel",
-    "noteColor": ""
+    "author": "R.F. Kuang, Babel, or the Necessity of Violence",
+    "noteColor": "img/yellow.webp"
   },
   {
     "index": "00106",
     "type": "text",
     "content": "“So, you see, translators do not so much deliver a message as the rewrite the original. And herein lies the difficulty - rewriting is still writing, and writing always reflects the authors ideology and biases.”",
     "author": "R.F. Kuang, Babel, or the Necessity of Violence",
-    "noteColor": ""
+    "noteColor": "img/yellow.webp"
   },
   {
     "index": "00107",
     "type": "text",
     "content": "“Words tell stories. Specifically, the history of those words - how they came into use, and how their meaning morphed into what they mean today - tell us just as much about a people, if not more, than any other kind of historical artefact.”",
     "author": "R.F. Kuang, Babel, or the Necessity of Violence",
-    "noteColor": ""
+    "noteColor": "img/yellow.webp"
   },
   {
     "index": "00108",
     "type": "text",
     "content": "“You won't get anywhere with that argument,' said Robin.\n'Why not?'\n'Because they don't care,' said Robin. It's too distant for them to care.'\n'What makes you so sure of that?' asked Cathy.\n'Because I didn't,' said Robin. 'I didn't, even though I'd been told time and time again how awful things were. It took witnessing it happening, in person, for me to realize all the abstractions were real. And even then, I tried my very hardest to look away. It's hard to accept what you don't want to see.”",
     "author": "R.F. Kuang, Babel, or the Necessity of Violence",
+    "noteColor": "img/yellow.webp"
+  },
+  {
+    "index": "00109",
+    "type": "img-text",
+    "content": "22/10/2026\n \nBắt quả tang!\nBụi thanh xà tắm nắng",
+    "img": "illu/thanh xa.webp",
+    "author": "",
     "noteColor": ""
   }
 ]
