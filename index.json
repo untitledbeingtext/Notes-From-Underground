@@ -784,6 +784,13 @@
     "content": "22/10/2026\n \nBắt quả tang!\nBụi thanh xà tắm nắng",
     "img": "illu/thanh xa.webp",
     "author": "",
-    "noteColor": ""
+    "noteColor": "img/beige.webp"
+  },
+  {
+    "index": "00109",
+    "type": "image",
+    "content": "illu/thanhxa.webp",
+    "author": "",
+    "noteColor": "img/beige.webp"
   }
 ]
