@@ -228,7 +228,7 @@ body {
   padding: 30px 20px;
   position: relative;
   background-size: contain;
-  background-position: left;
+  background-position: center;
   background-repeat: repeat;
   white-space: pre-wrap;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
