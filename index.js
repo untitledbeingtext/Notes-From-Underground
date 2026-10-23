@@ -139,12 +139,12 @@ document.addEventListener("DOMContentLoaded", async () => {
             <div class="noto-sans-music" style="display: grid; grid-template-columns: 50px 1fr; column-gap: 20px; align-items: center; height: 50px;">
               <div style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; overflow: hidden; position: relative; border-radius: 2px;">
                 <a href="${item.videoUrl}" target="_blank" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
-                  <img src="${item.img}" alt="Thumbnail" style="height: 150%; object-fit: cover; display: block;">
+                  <img src="${item.img}" alt="Thumbnail" style="height: 150%; object-fit: cover; display: block;" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/${item.videoUrl.split('/').pop().split('?')[0]}/hqdefault.jpg';">
                 </a>
               </div>
               <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; height: 50px; padding: 0px 0px; box-sizing: border-box;">
-                <div style="margin: 0; line-height: 1.5; font-weight: bold;">${songTitle}</div>
-                <div style="margin: 0; line-height: 1.5; opacity: 0.85;">${songAuthor}</div>
+                <div style="margin: 0; line-height: 1.75; font-weight: bold;font-size:15px;">${songTitle}</div>
+                <div style="margin: 0; line-height: 1.75; opacity: 0.85;font-weight: normal;font-size:15px;">${songAuthor}</div>
               </div>
             </div>
           `;
@@ -171,6 +171,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             `;
           }
         }
+
         noteDiv.innerHTML = htmlContent + indexHTML;
         container.appendChild(noteDiv);
       });

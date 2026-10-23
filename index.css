@@ -75,14 +75,13 @@
 .noto-sans-music {
   font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
-  font-weight: bold;
   font-style: normal;
 }
 .music-lyrics {
   font-family: "Noto Sans", sans-serif;
   font-weight: bold;
   font-style: normal;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 1.5;
   white-space: pre-line;
   margin-bottom: 12px;
@@ -234,7 +233,6 @@ body {
   width: 100%;
 }
 
-/* Đồng bộ với JS: JS append trực tiếp vào #notes-container, nên ta gộp chung style cho class .notes hoặc ID #notes-container */
 .notes,
 #notes-container {
   width: 1000px;
