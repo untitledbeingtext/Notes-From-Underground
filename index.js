@@ -82,7 +82,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             const charIdx = Math.floor(intensity * (CHARS.length - 1));
             const char = CHARS[Math.min(charIdx, CHARS.length - 1)];
 
-            // Đã sửa lại lỗi cú pháp nhân thiếu dấu sao ở đây
             ctx.fillStyle = `rgba(205, 239, 239, ${intensity * 0.45})`;
             ctx.fillText(char, c * fontSize, r * fontSize * 1.2);
           }
@@ -99,32 +98,28 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (container) {
     try {
-      //manifest.json
       const manifestResponse = await fetch('manifest.json');
       const fileList = await manifestResponse.json();
-
-      //yearly and monthly 
       const allDataPromises = fileList.map(async (filePath) => {
         const res = await fetch(filePath);
         return await res.json();
       });
 
       const nestedNotes = await Promise.all(allDataPromises);
-
-      //merge 
       const notesData = nestedNotes.flat();
 
       notesData.forEach((item, idx) => {
-        // Increment (tự động tăng số thứ tự)
         const autoIndex = String(idx + 1).padStart(5, '0');
         const indexHTML = `<div style="position: absolute; bottom: 8px; left: 12px; font-size: 0.7rem; opacity: 0.4; font-family: 'Courier Prime', monospace; pointer-events: none; z-index: 3;">#${autoIndex}</div>`;
 
-        // The same note
         const noteDiv = document.createElement('div');
         noteDiv.className = 'note';
         noteDiv.style.position = 'relative';
 
-        // If date
+        if (item.videoUrl && item.videoUrl.trim() !== "" && item.img && item.img.trim() !== "") {
+          noteDiv.style.paddingTop = '0px';
+        }
+
         if (item.date) {
           noteDiv.classList.add('real-time-note');
         } else {
@@ -135,29 +130,47 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         let htmlContent = '';
+        if (item.videoUrl && item.videoUrl.trim() !== "" && item.img && item.img.trim() !== "") {
+          const songTitle = item.title ? item.title : (item.content ? item.content : "");
+          const songAuthor = item.author && item.author !== 'math' ? item.author : "";
+          const lyrics = item.title ? item.content : "";
 
-        // If content
-        if (item.content && item.content.trim() !== "") {
-          htmlContent += `<div>${item.content}</div>`;
-        }
-
-        // If math & author
-        if (item.author && item.author !== 'math') {
-          htmlContent += `<div style="text-align: right; margin-top: 10px; margin-bottom: 15px; font-weight: bold;">― ${item.author}</div>`;
-        } else {
-          htmlContent += `<div style="margin-bottom: 15px;"></div>`;
-        }
-
-        // If img
-        if (item.img && item.img.trim() !== "") {
           htmlContent += `
-            <div style="margin-top: 0; margin-bottom: 15px; line-height: 0; overflow: hidden; border-radius: 1px;">
-              <img src="${item.img}" alt="illustration" style="width: 100%; height: auto; display: block; object-fit: contain; background: transparent;">
+            <div class="noto-sans-music" style="display: grid; grid-template-columns: 50px 1fr; column-gap: 20px; align-items: center; height: 50px;">
+              <div style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; overflow: hidden; position: relative; border-radius: 2px;">
+                <a href="${item.videoUrl}" target="_blank" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
+                  <img src="${item.img}" alt="Thumbnail" style="height: 150%; object-fit: cover; display: block;">
+                </a>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; height: 50px; padding: 0px 0px; box-sizing: border-box;">
+                <div style="margin: 0; line-height: 1.5; font-weight: bold;">${songTitle}</div>
+                <div style="margin: 0; line-height: 1.5; opacity: 0.85;">${songAuthor}</div>
+              </div>
             </div>
           `;
-        }
+          if (lyrics && lyrics.trim() !== "") {
+            htmlContent += `<div class="music-lyrics">${lyrics}</div>`;
+          }
 
-        // Merge into one type of dictionary
+        } else {
+          if (item.content && item.content.trim() !== "") {
+            htmlContent += `<div>${item.content}</div>`;
+          }
+
+          if (item.author && item.author !== 'math') {
+            htmlContent += `<div style="text-align: right; margin-top: 10px; margin-bottom: 15px; font-weight: bold;">― ${item.author}</div>`;
+          } else {
+            htmlContent += `<div style="margin-bottom: 15px;"></div>`;
+          }
+
+          if (item.img && item.img.trim() !== "") {
+            htmlContent += `
+              <div style="margin-top: 0; margin-bottom: 15px; line-height: 0; overflow: hidden; border-radius: 1px;">
+                <img src="${item.img}" alt="illustration" style="width: 100%; height: auto; display: block; object-fit: contain; background: transparent;">
+              </div>
+            `;
+          }
+        }
         noteDiv.innerHTML = htmlContent + indexHTML;
         container.appendChild(noteDiv);
       });

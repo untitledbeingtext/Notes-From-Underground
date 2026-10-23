@@ -64,6 +64,29 @@
   font-weight: 400;
   font-style: normal;
 }
+.noto-sans-uniquifier{
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+.noto-sans-music {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+.music-lyrics {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1.5;
+  white-space: pre-line;
+  margin-bottom: 12px;
+}
 
 /* ascii */
 #ascii-canvas {
