@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     'img/orange.webp',
     'img/beige.webp',
     'img/TIM.webp',
-    'img/yellow.webp',
     'img/neon.webp',
+    'img/yellow.webp',
     'img/grey.webp',
   ];
 
