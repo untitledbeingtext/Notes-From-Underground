@@ -54,15 +54,11 @@
     "noteColor": ""
   },
   {
-    "content": "“And I'd give up forever to touch you\n'Cause I know that you feel me somehow”",
-    "author": "Goo Goo Dolls, Iris",
-    "img": "",
-    "noteColor": ""
-  },
-  {
-    "content": "“And I don't want the world to see me\n'Cause I don't think that they'd understand\nWhen everything's made to be broken\nI just want you to know who I am”",
-    "author": "Goo Goo Dolls, Iris",
-    "img": "",
+    "title": "Iris",
+    "author": "Goo Goo Dolls",
+    "content": "And I'd give up forever to touch you\n'Cause I know that you feel me somehow\n \n...\n \nAnd I don't want the world to see me\n'Cause I don't think that they'd understand\nWhen everything's made to be broken\nI just want you to know who I am",
+    "img": "https://img.youtube.com/vi/CUbJQGqFoi0/maxresdefault.jpg",
+    "videoUrl": "https://youtu.be/CUbJQGqFoi0",
     "noteColor": ""
   },
   {
@@ -102,15 +98,19 @@
     "noteColor": ""
   },
   {
-    "content": "“The temple's gone, but still a single column stands today\nThat sinking feeling fades, but never really goes away”",
-    "author": "Vampire Weekend, Classical",
-    "img": "",
+    "title": "Classical",
+    "author": "Vampire Weekend",
+    "content": "The temple's gone, but still a single column stands today\nThat sinking feeling fades, but never really goes away",
+    "img": "https://img.youtube.com/vi/nP2FbpYs4t0/maxresdefault.jpg",
+    "videoUrl": "https://youtu.be/nP2FbpYs4t0",
     "noteColor": ""
   },
   {
-    "content": "“What's the point of human beings?\nA Sharpie face on tangerines.\nWhy's it felt like Halloween since Christmas 2017?”",
-    "author": "Vampire Weekend, Sympathy",
-    "img": "",
+    "title": "Sympathy",
+    "author": "Vampire Weekend",
+    "content": "What's the point of human beings?\nA Sharpie face on tangerines.\nWhy's it felt like Halloween since Christmas 2017?",
+    "img": "https://img.youtube.com/vi/P2L0d4uUp24/maxresdefault.jpg",
+    "videoUrl": "https://youtu.be/P2L0d4uUp24",
     "noteColor": ""
   }
 ]
