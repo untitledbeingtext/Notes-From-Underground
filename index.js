@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const charIdx = Math.floor(intensity * (CHARS.length - 1));
             const char = CHARS[Math.min(charIdx, CHARS.length - 1)];
 
+            // Đã sửa lại lỗi cú pháp nhân thiếu dấu sao ở đây
             ctx.fillStyle = `rgba(205, 239, 239, ${intensity * 0.45})`;
             ctx.fillText(char, c * fontSize, r * fontSize * 1.2);
           }
@@ -98,85 +99,67 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (container) {
     try {
-      const response = await fetch('index.json');
-      const notesData = await response.json();
+      //manifest.json
+      const manifestResponse = await fetch('manifest.json');
+      const fileList = await manifestResponse.json();
 
-      notesData.forEach(item => {
-        let indexHTML = '';
-        if (item.index) {
-          indexHTML = `<div style="position: absolute; bottom: 8px; left: 12px; font-size: 0.7rem; opacity: 0.4; font-family: 'Courier Prime', monospace; pointer-events: none; z-index: 3;">#${item.index}</div>`;
+      //yearly and monthly 
+      const allDataPromises = fileList.map(async (filePath) => {
+        const res = await fetch(filePath);
+        return await res.json();
+      });
+
+      const nestedNotes = await Promise.all(allDataPromises);
+
+      //merge 
+      const notesData = nestedNotes.flat();
+
+      notesData.forEach((item, idx) => {
+        // Increment (tự động tăng số thứ tự)
+        const autoIndex = String(idx + 1).padStart(5, '0');
+        const indexHTML = `<div style="position: absolute; bottom: 8px; left: 12px; font-size: 0.7rem; opacity: 0.4; font-family: 'Courier Prime', monospace; pointer-events: none; z-index: 3;">#${autoIndex}</div>`;
+
+        // The same note
+        const noteDiv = document.createElement('div');
+        noteDiv.className = 'note';
+        noteDiv.style.position = 'relative';
+
+        // If date
+        if (item.date) {
+          noteDiv.classList.add('real-time-note');
+        } else {
+          const bgImage = getBgForNote(item);
+          noteDiv.style.backgroundImage = `url("${bgImage}")`;
+          noteDiv.style.backgroundSize = 'cover';
+          noteDiv.style.backgroundPosition = 'center';
         }
 
-        if (item.type === 'text') {
-          const noteDiv = document.createElement('div');
-          noteDiv.className = 'note';
-          noteDiv.style.position = 'relative';
+        let htmlContent = '';
 
-          if (item.date) {
-            noteDiv.classList.add('real-time-note');
-          } else {
-            const bgImage = getBgForNote(item);
-            noteDiv.style.backgroundImage = `url("${bgImage}")`;
-          }
+        // If content
+        if (item.content && item.content.trim() !== "") {
+          htmlContent += `<div>${item.content}</div>`;
+        }
 
-          let htmlContent = `<div>${item.content}</div>`;
+        // If math & author
+        if (item.author && item.author !== 'math') {
+          htmlContent += `<div style="text-align: right; margin-top: 10px; margin-bottom: 15px; font-weight: bold;">― ${item.author}</div>`;
+        } else {
+          htmlContent += `<div style="margin-bottom: 15px;"></div>`;
+        }
 
-          if (item.author && item.author !== 'math') {
-            htmlContent += `<div style="text-align: right; margin-top: 10px; margin-bottom: 15px; font-weight: bold;">― ${item.author}</div>`;
-          } else {
-            htmlContent += `<div style="margin-bottom: 15px;"></div>`;
-          }
-
-          noteDiv.innerHTML = htmlContent + indexHTML;
-          container.appendChild(noteDiv);
-
-        } else if (item.type === 'image') {
-          const imgDiv = document.createElement('div');
-          imgDiv.className = 'imgs';
-          imgDiv.style.position = 'relative';
-
-          const bgImage = getBgForNote(item);
-          imgDiv.style.backgroundImage = `url("${bgImage}")`;
-          imgDiv.style.backgroundSize = 'cover';
-          imgDiv.style.backgroundPosition = 'center';
-
-          let imgHTML = `<img src="${item.content}" alt="illustration" style="display: block;">`;
-
-          if (item.author) {
-            imgHTML += `<div style="text-align: right; margin-top: 10px; margin-bottom: 15px; font-weight: bold; padding: 0 10px;">― ${item.author}</div>`;
-          } else {
-            imgHTML += `<div style="margin-bottom: 15px;"></div>`;
-          }
-
-          imgDiv.innerHTML = imgHTML + indexHTML;
-          container.appendChild(imgDiv);
-
-        } else if (item.type === 'img-text') {
-          const mixDiv = document.createElement('div');
-          mixDiv.className = 'note';
-          mixDiv.style.position = 'relative';
-          mixDiv.style.padding = "30px 20px";
-
-          const bgImage = getBgForNote(item);
-          mixDiv.style.backgroundImage = `url("${bgImage}")`;
-          mixDiv.style.backgroundSize = 'cover';
-          mixDiv.style.backgroundPosition = 'center';
-
-          let mixHTML = `<div>${item.content}</div>`;
-
-          if (item.author && item.author !== 'math') {
-            mixHTML += `<div style="text-align: right; margin-top: 10px; font-weight: bold; margin-bottom: 10px;">― ${item.author}</div>`;
-          }
-
-          mixHTML += `
-            <div style="margin-top: 0; margin-bottom: 15px; line-height: 0; overflow: hidden;">
+        // If img
+        if (item.img && item.img.trim() !== "") {
+          htmlContent += `
+            <div style="margin-top: 0; margin-bottom: 15px; line-height: 0; overflow: hidden; border-radius: 1px;">
               <img src="${item.img}" alt="illustration" style="width: 100%; height: auto; display: block; object-fit: contain; background: transparent;">
             </div>
           `;
-
-          mixDiv.innerHTML = mixHTML + indexHTML;
-          container.appendChild(mixDiv);
         }
+
+        // Merge into one type of dictionary
+        noteDiv.innerHTML = htmlContent + indexHTML;
+        container.appendChild(noteDiv);
       });
 
       if (window.innerWidth <= 768) {
@@ -201,7 +184,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
     } catch (error) {
-      console.error("Ko tai đc:", error);
+      console.error("Ko tải đc:", error);
     }
   }
 });

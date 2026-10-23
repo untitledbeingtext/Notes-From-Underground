@@ -65,7 +65,7 @@
   font-style: normal;
 }
 
-/*ascii*/
+/* ascii */
 #ascii-canvas {
   position: fixed;
   top: 0;
@@ -76,7 +76,7 @@
   pointer-events: none;
 }
 
-/*scll*/
+/* scll */
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -125,7 +125,7 @@ body {
 }
 
 .narrative-card {
-  color:#221201;
+  color: #221201;
   background-image: url(img/chocomin.webp);
   background-size: contain;
   background-position: center;
@@ -139,7 +139,7 @@ body {
 }
 
 .narrative-title {
-  font-family: "Crimson Text",serif;
+  font-family: "Crimson Text", serif;
   text-align: left;
   font-weight: lighter;
   margin-top: 0;
@@ -158,11 +158,12 @@ body {
 }
 
 .narrative-author {
-  font-family: "Crimson Text",serif;
+  font-family: "Crimson Text", serif;
   text-align: right;
   font-weight: lighter;
   margin-top: 25px;
 }
+
 .narrative-card:hover {
   position: relative;
   z-index: 10;
@@ -210,7 +211,9 @@ body {
   width: 100%;
 }
 
-.notes {
+/* Đồng bộ với JS: JS append trực tiếp vào #notes-container, nên ta gộp chung style cho class .notes hoặc ID #notes-container */
+.notes,
+#notes-container {
   width: 1000px;
   max-width: 90vw;
   column-count: 3;
@@ -225,7 +228,7 @@ body {
   padding: 30px 20px;
   position: relative;
   background-size: contain;
-  background-position: center;
+  background-position: left;
   background-repeat: repeat;
   white-space: pre-wrap;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -245,6 +248,7 @@ body {
   font-weight: bold;
   margin-top: 10px;
 }
+
 .note.real-time-note {
   background-image: none !important;
   background-color: transparent;
@@ -277,6 +281,7 @@ body {
   object-fit: contain;
   background: transparent;
 }
+
 .imgs:hover {
   position: relative;
   z-index: 10;
@@ -284,9 +289,9 @@ body {
   transform: scale(1.1);
   filter: drop-shadow(0 0px 5px rgba(0, 0, 0, .35));
 }
-/*responsive */
-@media (max-width: 768px) {
 
+/* responsive */
+@media (max-width: 768px) {
   html {
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
@@ -333,28 +338,14 @@ body {
     align-items: center;
   }
 
-  .notes {
+  .notes,
+  #notes-container {
     width: 80vw;
     max-width: 90%;
     column-count: 1;
     column-gap: 0;
   }
 
-  .note,
-  .imgs {
-    width: 100%;
-    max-width: none;
-    break-inside: avoid;
-    margin-bottom: 12px;
-    box-sizing: border-box;
-    overflow: visible;
-  }
-
-  .imgs img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
   .note,
   .imgs {
     width: 100%;
@@ -367,11 +358,20 @@ body {
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
     transform-origin: center center;
   }
+
+  .imgs img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
   .note.active-zoom,
   .imgs.active-zoom {
     transform: scale(1.08);
     z-index: 10;
   }
+
   .note.real-time-note.active-zoom {
-    transform: none !important;}
+    transform: none !important;
+  }
 }
