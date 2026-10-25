@@ -76,6 +76,7 @@
   font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+  transition: transform 0.3s ease;
 }
 .music-lyrics {
   font-family: "Noto Sans", sans-serif;
@@ -86,7 +87,6 @@
   white-space: pre-line;
   margin-bottom: 12px;
 }
-
 /* ascii */
 #ascii-canvas {
   position: fixed;

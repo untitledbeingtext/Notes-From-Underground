@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           const lyrics = item.title ? item.content : "";
 
           htmlContent += `
-            <div class="noto-sans-music" style="display: grid; grid-template-columns: 50px 1fr; column-gap: 20px; align-items: center; height: 50px;">
+            <div class="noto-sans-music" style="display: grid; grid-template-columns: 50px 1fr; column-gap: 20px; align-items: center; height: 50px; ">
               <div style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; overflow: hidden; position: relative; border-radius: 2px;">
                 <a href="${item.videoUrl}" target="_blank" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
                   <img src="${item.img}" alt="Thumbnail" style="height: 150%; object-fit: cover; display: block;" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/${item.videoUrl.split('/').pop().split('?')[0]}/hqdefault.jpg';">
