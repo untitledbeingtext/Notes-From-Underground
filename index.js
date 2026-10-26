@@ -130,8 +130,24 @@ document.addEventListener("DOMContentLoaded", async () => {
           noteDiv.style.backgroundRepeat = 'repeat-y';
         }
 
+        const fullContent = item.content || "";
+        const paragraphs = fullContent.split(/\r?\n/).filter(p => p.trim() !== "");
+
+        const isPoem = item.type === "poem";
+        const isMusicVideo = item.videoUrl && item.videoUrl.trim() !== "";
+
+        
+        const isLongContent = !isPoem && !isMusicVideo && (paragraphs.length > 2 || fullContent.length > 200);
+
+        let highlightText = fullContent;
+        if (isLongContent) {
+          const firstTwoParagraphs = paragraphs.slice(0, 2).join('\n\n');
+          highlightText = `${firstTwoParagraphs}... <span class="read-more-hint"><br><br>(read more)</span>`;
+          noteDiv.classList.add('collapsed-note');
+        }
+
         let htmlContent = '';
-        if (item.videoUrl && item.videoUrl.trim() !== "" && item.img && item.img.trim() !== "") {
+        if (isMusicVideo && item.img && item.img.trim() !== "") {
           const songTitle = item.title ? item.title : (item.content ? item.content : "");
           const songAuthor = item.author && item.author !== 'math' ? item.author : "";
           const lyrics = item.title ? item.content : "";
@@ -154,9 +170,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           }
 
         } else {
-          if (item.content && item.content.trim() !== "") {
-            htmlContent += `<div>${item.content}</div>`;
-          }
+          htmlContent += `<div class="note-text-container">${isLongContent ? highlightText : fullContent}</div>`;
 
           if (item.author && item.author !== 'math') {
             htmlContent += `<div style="text-align: right; margin-top: 10px; margin-bottom: 15px; font-weight: bold;">― ${item.author}</div>`;
@@ -164,9 +178,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             htmlContent += `<div style="margin-bottom: 15px;"></div>`;
           }
 
+          
           if (item.img && item.img.trim() !== "") {
             htmlContent += `
-              <div style="margin-top: 0; margin-bottom: 15px; line-height: 0; overflow: hidden; border-radius: 1px;">
+              <div class="note-image-wrapper" style="margin-top: 0; margin-bottom: 15px; line-height: 0; overflow: hidden; border-radius: 1px;">
                 <img src="${item.img}" alt="illustration" style="width: 100%; height: auto; display: block; object-fit: contain; background: transparent;">
               </div>
             `;
@@ -174,6 +189,29 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         noteDiv.innerHTML = htmlContent + indexHTML;
+
+        if (isLongContent) {
+          let isExpanded = false;
+          noteDiv.style.cursor = 'pointer';
+
+          noteDiv.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') return;
+
+            isExpanded = !isExpanded;
+            const textContainer = noteDiv.querySelector('.note-text-container');
+
+            if (isExpanded) {
+              textContainer.innerText = fullContent;
+              noteDiv.classList.remove('collapsed-note');
+              noteDiv.classList.add('expanded-note');
+            } else {
+              textContainer.innerHTML = highlightText;
+              noteDiv.classList.remove('expanded-note');
+              noteDiv.classList.add('collapsed-note');
+            }
+          });
+        }
+
         container.appendChild(noteDiv);
       });
 
