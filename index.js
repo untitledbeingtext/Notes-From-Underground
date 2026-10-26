@@ -125,8 +125,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         } else {
           const bgImage = getBgForNote(item);
           noteDiv.style.backgroundImage = `url("${bgImage}")`;
-          noteDiv.style.backgroundSize = 'cover';
-          noteDiv.style.backgroundPosition = 'center';
+          noteDiv.style.backgroundSize = '100% auto';
+          noteDiv.style.backgroundPosition = 'top center';
+          noteDiv.style.backgroundRepeat = 'repeat-y';
         }
 
         let htmlContent = '';
