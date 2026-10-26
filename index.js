@@ -137,11 +137,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         const isMusicVideo = item.videoUrl && item.videoUrl.trim() !== "";
 
         
-        const isLongContent = !isPoem && !isMusicVideo && (paragraphs.length > 2 || fullContent.length > 200);
+        const isLongContent = !isPoem && !isMusicVideo && (paragraphs.length > 3 || fullContent.length > 200);
 
         let highlightText = fullContent;
         if (isLongContent) {
-          const firstTwoParagraphs = paragraphs.slice(0, 2).join('\n\n');
+          const firstTwoParagraphs = paragraphs.slice(0, 3).join('\n\n');
           highlightText = `${firstTwoParagraphs}... <span class="read-more-hint"><br><br>(read more)</span>`;
           noteDiv.classList.add('collapsed-note');
         }

@@ -135,5 +135,13 @@
     "img": "",
     "videoUrl": "",
     "noteColor": "img/beige.webp"
+  },
+  {
+    "content":"Lúc đầu làm cái web này, mình chỉ muốn sử dụng để viết văn ngắn kiểu mấy cái line chơi chữ xàm xí đú nhảy ra trong đầu mình thôi. Sau càng ngày mình có cảm giác được trút bỏ khi viết ra nên mình viết ngày càng dài, càng nhiều và quá trình lướt lên lướt xuống để check trang nhật ký mình mới viết thật sự rất phiền, rất mệt nên mình phải deploy thêm mấy cái tính năng rút gọn văn bản. Cũng từ đây mình học ra thêm những cái mới khá hay.\n \nMình dạy Python cho học sinh nên đôi lúc mấy bài slicing, lọc cắt văn bản khá khô khan do tụi nhỏ chả hiểu dùng để chi thì giờ đây mình đã có thêm ví dụ, mình nhờ tụi nhỏ viết giùm mình cái hàm cắt code mã Youtube để mình chỉ cần import link vô dashboard là nó tự chắt hình với tên nghệ sĩ giúp mình. Hay nhờ tụi nó giúp mình cắt lọc đống file json bị nhiều và mình cần đổi một loạt key :))) một công đôi chuyện, tụi nhỏ thấy thích lắm, mình cũng thích do tụi mình có case study riêng và ko bị chán. Về nhà mình đổi sang Js sau.\n \nVới lại, sau khi cắt chỉ còn hiển thị mỗi 3 đoạn, tức là mình sẽ phải tập cách viết câu hook làm sao gây tò mò cho người đọc. Mình chả có độc giả nhưng mà mong lỡ có ai đọc được sẽ vô tình nhìn thấy và tò mò hehe :))))",
+    "author": "",
+    "img": "",
+    "videoUrl": "",
+    "noteColor": "img/neon.webp",
+    "type":"poem"
   }
 ]
