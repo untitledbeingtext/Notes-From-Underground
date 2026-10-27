@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
           let highlightText = fullContent;
           if (isLongContent) {
-            const firstTwoParagraphs = paragraphs.slice(0, 3).join('\n\n');
+            const firstTwoParagraphs = paragraphs.slice(0, 2).join('\n\n');
             highlightText = `${firstTwoParagraphs}<span class="read-more-hint"><br>...(read more)</span>`;
             noteDiv.classList.add('collapsed-note');
           }
